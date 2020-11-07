@@ -12,7 +12,7 @@ class Stack{
     }
 
     isEmpty(){
-        return this.n = 0
+        return this.n === 0
     }
 
     size(){
@@ -27,6 +27,25 @@ class Stack{
     }
 
     pop(){
-
+        if(this.isEmpty()) return null
+        let oldFirst = this.root
+        this.root = oldFirst.next
+        this.n--
+        return oldFirst.value
     }
 }
+
+const stack = new Stack()
+stack.push(1)
+console.log('stack',stack)
+console.log('size',stack.size())
+stack.push(2)
+console.log('stack',stack)
+console.log('size',stack.size())
+stack.push(3)
+console.log('stack',stack)
+console.log('size',stack.size())
+const del = stack.pop()
+console.log('del',del)
+console.log('stack',stack)
+console.log('size',stack.size())
